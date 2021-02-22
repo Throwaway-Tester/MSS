@@ -34,6 +34,7 @@ jobs:
       timeout-minutes: 5
       run: |
         source /opt/conda/bin/activate mssenv
+        mamba install pytest-xdist
         cd $GITHUB_WORKSPACE
         xvfb-run pytest -n 4 --dist loadscope --max-worker-restart 0 \
         --ignore ./mslib/msui/_tests/test_mscolab_admin_window.py \
